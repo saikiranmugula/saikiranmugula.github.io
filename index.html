@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mugula Sai Kiran — Brand & Content Marketer</title>
+<meta name="description" content="Portfolio of Mugula Sai Kiran, Brand & Content Marketer at Gupshup. Video production, SEO content, campaigns and brand storytelling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f7f7f5;
+    --bg-card: #ffffff;
+    --text-primary: #111110;
+    --text-secondary: #6b6b68;
+    --text-tertiary: #a0a09c;
+    --border: rgba(0,0,0,0.1);
+    --border-hover: rgba(0,0,0,0.22);
+    --accent: #111110;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111110;
+      --bg-secondary: #1a1a18;
+      --bg-card: #1a1a18;
+      --text-primary: #f0efeb;
+      --text-secondary: #9e9d99;
+      --text-tertiary: #5c5c58;
+      --border: rgba(255,255,255,0.1);
+      --border-hover: rgba(255,255,255,0.22);
+      --accent: #f0efeb;
+    }
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border);
+    z-index: 100;
+    padding: 14px 0;
+  }
+  .nav-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .hero-role {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+  .hero-bio {
+    font-size: 15px;
+    color: var(--text-primary);
+    line-height: 1.75;
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 9px 18px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border-hover);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: var(--bg-secondary); }
+  .btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* CONTACT REVEAL */
+  .contact-panel {
+    display: none;
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    max-width: 340px;
+  }
+  .contact-panel.open { display: block; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+  }
+  .contact-row:not(:last-child) { border-bottom: 0.5px solid var(--border); }
+  .contact-label { font-size: 12px; color: var(--text-tertiary); width: 52px; flex-shrink: 0; }
+  .contact-val { font-size: 14px; color: var(--text-primary); font-weight: 500; text-decoration: none; }
+  .contact-val:hover { text-decoration: underline; }
+
+  /* SECTIONS */
+  .section {
+    padding: 52px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 24px;
+  }
+
+  /* WORK GRID */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .work-grid.single { grid-template-columns: 1fr; }
+  @media (max-width: 520px) { .work-grid { grid-template-columns: 1fr; } }
+
+  .work-card {
+    display: block;
+    text-decoration: none;
+    padding: 18px 20px;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .work-card:hover { border-color: var(--border-hover); background: var(--bg-secondary); }
+  .card-cat {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    line-height: 1.45;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    color: var(--text-tertiary);
+    border: 0.5px solid var(--border);
+  }
+  .card-arrow {
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  /* ABOUT GRID */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 520px) { .about-grid { grid-template-columns: 1fr; } }
+
+  .about-item {
+    padding: 16px 20px;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+  }
+  .about-item-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+  .about-item-val {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.55;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0;
+    border-top: 0.5px solid var(--border);
+    margin-top: 0;
+  }
+  .footer-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-note { font-size: 13px; color: var(--text-tertiary); }
+  .footer-link { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+  .footer-link:hover { color: var(--text-primary); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Site navigation">
+  <div class="nav-inner">
+    <a class="nav-name" href="#">Sai Kiran</a>
+    <ul class="nav-links">
+      <li><a href="#video">Video</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#campaigns">Campaigns</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <p class="hero-eyebrow">Portfolio</p>
+      <h1 class="hero-name">Mugula Sai Kiran</h1>
+      <p class="hero-role">Brand &amp; Content Marketer &nbsp;·&nbsp; Gupshup</p>
+      <p class="hero-bio">I build content that works across the funnel — from AI-native video series and SEO-driven long-form to brand campaigns and event activations. Currently leading content at Gupshup, one of the world's largest conversational AI platforms.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://www.linkedin.com/in/mugulasaikiran/" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <button class="btn" onclick="toggleContact()" aria-expanded="false" aria-controls="contact-panel" id="contact-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12 19.79 19.79 0 0 1 1.64 3.3 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Get in touch
+        </button>
+      </div>
+      <div class="contact-panel" id="contact-panel" role="region" aria-label="Contact details">
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <a class="contact-val" href="tel:+917675071189">(+91) 76750 71189</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <a class="contact-val" href="mailto:saikiran.mugula11@gmail.com">saikiran.mugula11@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section" id="video" aria-labelledby="video-heading">
+      <p class="section-label" id="video-heading">Video Production</p>
+      <div class="work-grid" role="list">
+
+        <a class="work-card" href="https://youtu.be/Wkxtb9b4eUk" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Case Study</p>
+          <p class="card-title">Dot &amp; Key — Full Case Study</p>
+          <p class="card-desc">End-to-end customer success video showcasing conversational AI impact on D2C growth.</p>
+          <div class="card-tags"><span class="tag">YouTube</span><span class="tag">Production</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/7BDpYJ48i8Q" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Case Study</p>
+          <p class="card-title">Domino's — Full Case Study</p>
+          <p class="card-desc">Customer story built around WhatsApp AI commerce and order automation for one of India's largest QSR chains.</p>
+          <div class="card-tags"><span class="tag">YouTube</span><span class="tag">Customer Marketing</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://youtube.com/playlist?list=PLZS6UYtujN1CAbG8g2462fOjJKfEISMuv" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">SEO Video Series</p>
+          <p class="card-title">AI in a Blink</p>
+          <p class="card-desc">Multi-episode explainer series built for search discovery and top-of-funnel awareness in the AI space.</p>
+          <div class="card-tags"><span class="tag">Series</span><span class="tag">SEO</span><span class="tag">YouTube</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=GQUEabKPUPQ&list=PLl21mOtz38tMICPuV0K5_dY8okLzaI8Nj" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Product Series</p>
+          <p class="card-title">Agentic AI Series</p>
+          <p class="card-desc">Video series positioning Gupshup's agentic AI capabilities for enterprise and mid-market audiences.</p>
+          <div class="card-tags"><span class="tag">Series</span><span class="tag">Product</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.linkedin.com/posts/gupshup_were-gupshupai-now-activity-7363851704141795328-_UtH" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Brand</p>
+          <p class="card-title">Brand Domain Refresh — gupshup.ai</p>
+          <p class="card-desc">Launch video for Gupshup's rebrand to gupshup.ai — concept, scripting and production.</p>
+          <div class="card-tags"><span class="tag">LinkedIn</span><span class="tag">Brand</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=NzKhKq0paZM" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Product Demo</p>
+          <p class="card-title">Gupshup Conversation Cloud</p>
+          <p class="card-desc">Platform demo video used across sales and marketing for pipeline enablement and onboarding.</p>
+          <div class="card-tags"><span class="tag">YouTube</span><span class="tag">Sales Enablement</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/Nn0WJnEi600" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Sales Enablement</p>
+          <p class="card-title">Dazn — Voice AI Demo</p>
+          <p class="card-desc">Voice AI use case video produced for the global sports streaming platform.</p>
+          <div class="card-tags"><span class="tag">Voice</span><span class="tag">Sales</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://youtu.be/YOPE1nxxSSw" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Sales Enablement</p>
+          <p class="card-title">Oona Insurance — Demo Video</p>
+          <p class="card-desc">Product walkthrough built for the insurance sector, demonstrating automated claims and support flows.</p>
+          <div class="card-tags"><span class="tag">Insurance</span><span class="tag">Sales</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section class="section" id="writing" aria-labelledby="writing-heading">
+      <p class="section-label" id="writing-heading">SEO &amp; Long-form Writing</p>
+      <div class="work-grid single" role="list">
+
+        <a class="work-card" href="https://youtube.com/playlist?list=PLZS6UYtujN1CAbG8g2462fOjJKfEISMuv" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Content + Video Series</p>
+          <p class="card-title">AI in a Blink — SEO Content Series</p>
+          <p class="card-desc">Structured content series combining long-form blog posts and companion video to capture high-intent search traffic across conversational AI topics. Built to rank and convert.</p>
+          <div class="card-tags"><span class="tag">SEO</span><span class="tag">Long-form</span><span class="tag">Series</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.youtube.com/watch?v=f3TSTRon4qs" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">SEO Series</p>
+          <p class="card-title">SEO Series 02</p>
+          <p class="card-desc">Part of a structured SEO content series built to capture demand across the AI and messaging category.</p>
+          <div class="card-tags"><span class="tag">SEO</span><span class="tag">YouTube</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.linkedin.com/posts/gupshup_5-hacks-to-ace-festive-season-sale-with-gupshup-activity-7244587504106958848-A6h7" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Seasonal Campaign</p>
+          <p class="card-title">Festive Season Campaign</p>
+          <p class="card-desc">Content-led seasonal campaign timed around India's peak eCommerce period — LinkedIn posts, short-form video and landing copy working together.</p>
+          <div class="card-tags"><span class="tag">Campaign</span><span class="tag">LinkedIn</span><span class="tag">Seasonal</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CAMPAIGNS -->
+    <section class="section" id="campaigns" aria-labelledby="campaigns-heading">
+      <p class="section-label" id="campaigns-heading">Campaigns &amp; Events</p>
+      <div class="work-grid" role="list">
+
+        <a class="work-card" href="https://www.linkedin.com/posts/gupshup_gupshupconversations-conversationalai-eventtour-activity-7252595782673965056-V3U3" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Event Campaign</p>
+          <p class="card-title">Gupshup Conversations Tour</p>
+          <p class="card-desc">End-to-end content for a multi-city event series — invitations, announcements, on-demand assets and event highlights.</p>
+          <div class="card-tags"><span class="tag">Event</span><span class="tag">LinkedIn</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.linkedin.com/posts/gupshup_financialservices-customertestimonials-liquide-activity-7308061968894955529-qW3s" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Testimonial Video</p>
+          <p class="card-title">Customer Testimonials — Conversations</p>
+          <p class="card-desc">On-demand testimonial videos captured from live event attendees across financial services verticals.</p>
+          <div class="card-tags"><span class="tag">Customer Marketing</span><span class="tag">Video</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.instagram.com/reel/CoXZmdkD4Wa/" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Event Highlights</p>
+          <p class="card-title">NRF Retail 2023</p>
+          <p class="card-desc">Instagram Reel capturing Yellow.ai's presence at the world's largest retail conference in New York.</p>
+          <div class="card-tags"><span class="tag">Instagram</span><span class="tag">Reel</span><span class="tag">Event</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+        <a class="work-card" href="https://www.linkedin.com/posts/gupshup_zeiss-gupshup-conversationalmarketing-activity-7327919743774904320-zSLf" target="_blank" rel="noopener" role="listitem">
+          <p class="card-cat">Customer Marketing</p>
+          <p class="card-title">ZEISS × Gupshup — Customer Reel</p>
+          <p class="card-desc">Short-form customer marketing video co-produced with ZEISS for LinkedIn distribution.</p>
+          <div class="card-tags"><span class="tag">LinkedIn</span><span class="tag">Reel</span></div>
+          <p class="card-arrow">↗</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <p class="section-label" id="about-heading">About</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <p class="about-item-label">Currently</p>
+          <p class="about-item-val">Content at Gupshup — conversational AI &amp; messaging platform</p>
+        </div>
+        <div class="about-item">
+          <p class="about-item-label">Formats</p>
+          <p class="about-item-val">Video production, SEO blogs, LinkedIn, event assets, brand campaigns, GIFs</p>
+        </div>
+        <div class="about-item">
+          <p class="about-item-label">Channels</p>
+          <p class="about-item-val">YouTube, LinkedIn, Instagram, WhatsApp, email</p>
+        </div>
+        <div class="about-item">
+          <p class="about-item-label">Previously</p>
+          <p class="about-item-val">Yellow.ai — brand, product &amp; growth content across Yellow Messenger → Yellow.ai era</p>
+        </div>
+        <div class="about-item">
+          <p class="about-item-label">Sectors</p>
+          <p class="about-item-val">FMCG, Fintech, Retail, eCommerce, Insurance, Healthcare</p>
+        </div>
+        <div class="about-item">
+          <p class="about-item-label">Based in</p>
+          <p class="about-item-val">India</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-note">Mugula Sai Kiran &nbsp;·&nbsp; 2025</p>
+    <a class="footer-link" href="https://www.linkedin.com/in/mugulasaikiran/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+</footer>
+
+<script>
+  function toggleContact() {
+    var panel = document.getElementById('contact-panel');
+    var btn = document.getElementById('contact-btn');
+    var isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+  }
+</script>
+
+</body>
+</html>
